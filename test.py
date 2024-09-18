@@ -5,11 +5,11 @@ from vllm import LLM, SamplingParams
 
 # 图像文件路径列表
 IMAGES = [
-            "/root/ld/ld_project/MiniCPM-V/assets/airplane.jpeg",  # 本地图片路径
+            "/root/324/dhu.jpeg",  # 本地图片路径
             ]
 
 # 模型名称或路径
-MODEL_NAME = "/root/ld/ld_model_pretrained/Minicpmv2_6"  # 本地模型路径或Hugging Face模型名称
+MODEL_NAME = "/root/MiniCPM-V-2_6"  # 本地模型路径或Hugging Face模型名称
 
 # 打开并转换图像
 image = Image.open(IMAGES[0]).convert("RGB")
