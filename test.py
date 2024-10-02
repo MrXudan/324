@@ -10,7 +10,8 @@ IMAGES = [
 
 # 模型名称或路径
 MODEL_NAME = "/root/MiniCPM-V-2_6"  # 本地模型路径或Hugging Face模型名称
-
+with open('/root/324/box.prompt', 'r', encoding='utf-8') as f:  #单次prompt,用于明确工作内容和回复格式
+    prompt_once = f.read()
 # 打开并转换图像
 image = Image.open(IMAGES[0]).convert("RGB")
 
@@ -24,8 +25,8 @@ llm = LLM(model=MODEL_NAME,
                                          max_model_len=2048)  # 根据内存状况可调整此值
 
 # 构建对话消息
-messages = [{'role': 'user', 'content': '(<image>./</image>)\n' + '请描述这张图片'}]
-
+messages = [{'role': 'user', 'content': prompt_once}]
+#messages = [{'role': 'user', 'content': '(<image>./</image>)\n' + '请描述这张图片'}]
 # 应用对话模板到消息
 prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
 
