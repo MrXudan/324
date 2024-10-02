@@ -2,7 +2,8 @@
 from PIL import Image
 from transformers import AutoTokenizer
 from vllm import LLM, SamplingParams
-
+import os
+os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'#减少内存碎片
 # 图像文件路径列表
 IMAGES = [
             "/root/324/dhu.jpeg",  # 本地图片路径
