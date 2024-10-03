@@ -26,7 +26,7 @@ llm = LLM(model=MODEL_NAME,
                                          max_model_len=2048)  # 根据内存状况可调整此值
 
 # 构建对话消息
-messages = [{'role': 'user', 'content': '(<image>./</image>)\n' + prompt_once}]
+messages = [{'role': 'user', 'content':  prompt_once}]
 #messages = [{'role': 'user', 'content': '(<image>./</image>)\n' + '请描述这张图片'}]
 # 应用对话模板到消息
 prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
