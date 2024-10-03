@@ -6,7 +6,7 @@ import os
 os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'#减少内存碎片
 # 图像文件路径列表
 IMAGES = [
-            "/root/324/dhu.jpeg",  # 本地图片路径
+            "/root/324/prompt.png",  # 本地图片路径
             ]
 
 # 模型名称或路径
@@ -26,7 +26,7 @@ llm = LLM(model=MODEL_NAME,
                                          max_model_len=2048)  # 根据内存状况可调整此值
 
 # 构建对话消息
-messages = [{'role': 'user', 'content':  prompt_once}]
+messages = [{'role': 'user', 'content': '(<image>./</image>)\n' + prompt_once}]
 #messages = [{'role': 'user', 'content': '(<image>./</image>)\n' + '请描述这张图片'}]
 # 应用对话模板到消息
 prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
